@@ -1,0 +1,218 @@
+import type { AvatarKey, AvatarPlace } from "../brand/Avatar";
+import type { Cap } from "../brand/Subtitles";
+import { LAYOUT } from "../brand/tokens";
+import { card } from "./mdh";
+import voiceEnv from "./ebay-voice-env.json";
+
+/**
+ * "eBay's first sale was broken": Internet Stories episode 3, in the owner's Google AI Studio voice
+ * (public/ebay/voice.wav, 42.00 s, never edited). Phrase times are the speech stretches between the recording's
+ * pauses (an RMS pass on voice16k.wav); the words come from local whisper.cpp passes (out/ebay-asr).
+ * Inside a phrase, word times are spread by syllables. Every scene takes its times from here.
+ */
+
+const captions: Cap[] = [
+  ...card([0.28, 0.64, "Bhai,"], [0.8, 2.26, "*eBay par sabse *pehli cheez"]),
+  ...card([2.4, 3.76, "jo *biki thi na…"]),
+  ...card([4.06, 4.46, "woh"], [4.7, 6.16, "*tooti *hui thi!"]),
+  ...card([6.86, 8.34, "Kahani *1995 ki."]),
+  ...card([8.68, 9.68, "Tab eBay ka naam tha"], [9.96, 10.68, "| *AuctionWeb."]),
+  ...card([11.24, 12.85, "Founder *Pierre *Omidyar ne"]),
+  ...card([12.95, 14.2, "apna *kharab laser pointer"]),
+  ...card([14.25, 15.06, "sale pe daal diya."]),
+  ...card([15.42, 17.12, "Ab *tooti hui cheez | kaun *khareedega?"]),
+  ...card([17.54, 18.36, "Lekin *Mark"], [18.48, 19.48, "*Fraser ne uske"]),
+  ...card([19.48, 21.08, "*chaudah *dollar *terasi *cents"], [21.08, 21.66, "| de diye."]),
+  ...card([22.16, 23.14, "Aur *asli *twist?"]),
+  ...card([23.58, 25.24, "*20 *saal baad,"]),
+  ...card([25.5, 27.28, "Mark ne *camera par"]),
+  ...card([27.4, 29.12, "wahi *original | laser pointer dikhaya."]),
+  ...card([29.44, 30.88, "Ek *broken *gadget,"]),
+  ...card([31.08, 33.3, "*internet *history ka | hissa ban gaya."]),
+  ...card([33.74, 34.08, "Ab batao,"], [34.58, 35.96, "| tum kabhi koi | *tooti hui cheez *khareedoge?"]),
+  ...card([36.38, 36.78, "*Comment karo."]),
+  ...card([37.18, 37.72, "Aur aisi"], [37.9, 39.24, "hi *crazy *true *stories | ke liye"]),
+  ...card([39.6, 40.0, "*follow karo"], [40.24, 40.74, "*Internet"], [40.96, 41.66, "*Toolbox!"]),
+];
+
+/** Scene cues, in seconds of the voice. */
+export const C = {
+  // 1. The hook
+  snapAt: 0.28,
+  catchAt: 0.86,
+  titleAt: 0.8,
+  firstWord: 1.5,
+  soldWord: 2.8,
+  leanAt: 3.8,
+  brokenAt: 4.7,
+  // 2. Back to 1995
+  irisAt: 6.22,
+  rewindFrom: 6.5,
+  yearLand: 7.85,
+  diveAt: 8.15,
+  roomAt: 8.4,
+  pageAt: 9.96,
+  // 3. The strange listing
+  panAt: 11.2,
+  nameAt: 11.6,
+  penAt: 13.2,
+  sendAt: 14.3,
+  rowAt: 14.6,
+  listAt: 15.05,
+  whoAt: 15.42,
+  tootiAt: 15.75,
+  kaunAt: 16.35,
+  // 4. The surprising buyer
+  buyerAt: 17.4,
+  markName: 17.98,
+  spinAt: 19.15,
+  digits: [19.72, 20.02, 20.58, 20.92] as [number, number, number, number],
+  soldAt: 21.18,
+  // 5. The 20-year twist
+  twistAt: 21.98,
+  twistWord: 22.42,
+  calFrom: 23.3,
+  calTo: 25.2,
+  camAt: 25.42,
+  raiseAt: 27.4,
+  originalAt: 27.95,
+  gadgetAt: 29.36,
+  historyAt: 31.08,
+  plateAt: 31.85,
+  // 6. The question and the outro
+  askAt: 33.45,
+  wouldAt: 34.58,
+  bubbleA: 35.2,
+  bubbleB: 35.6,
+  commentAt: 36.38,
+  seriesAt: 37.08,
+  crazyAt: 37.9,
+  outroAt: 39.45,
+  followAt: 39.6,
+  toolboxAt: 40.96,
+};
+
+/** One sound per calendar page: the flips slow down as 2015 lands (same curve as FlipCalendar). */
+const calFlips = Array.from({ length: 20 }, (_, i) => C.calFrom + (C.calTo - C.calFrom) * Math.pow((i + 1) / 20, 1 / 0.6));
+
+/** Year frames passing the camera on the way back to 1995. */
+const yearPasses = [0.14, 0.3, 0.46, 0.62, 0.8].map((k) => C.rewindFrom + (C.yearLand - C.rewindFrom) * k);
+
+export const ebay = {
+  voiceover: "ebay/voice.wav",
+  voiceSeconds: 42.0,
+  tailSeconds: 0.4,
+  music: "ebay/music.wav",
+  env: voiceEnv as number[],
+  disclaimer: ["Real 1995 story, animated.", "Screens are reconstructions."],
+  disclaimerTo: C.outroAt,
+  captions,
+  /** Captions drop lower while the presenter is big and centred. */
+  captionLow: (start: number) => start < 6.3 || (start >= C.askAt && start < C.seriesAt),
+  captionLowTop: 1450,
+
+  avatarKeys: [
+    { at: 0, pose: "surprised", expr: "surprised", look: [0.05, -0.95] },
+    { at: 0.68, pose: "explain", expr: "surprised", look: [0.65, 0.8] },
+    { at: 1.5, pose: "explain", expr: "surprised", look: [0, 0], tilt: 4 },
+    { at: 2.5, pose: "explain", expr: "talk", look: [0.6, 0.7] },
+    { at: C.leanAt, pose: "explain", expr: "thinking", look: [0, 0], tilt: -5 },
+    { at: C.brokenAt, pose: "explain", expr: "surprised", look: [0, 0], jump: true },
+    { at: 5.6, pose: "explain", expr: "excited", look: [0.2, 0] },
+    { at: C.whoAt, pose: "think", expr: "thinking", look: [0.75, -0.75], tilt: 4 },
+    { at: C.kaunAt, pose: "explain", expr: "thinking", look: [0.4, -0.8], tilt: -4 },
+    { at: C.buyerAt, pose: "rest", expr: "thinking", look: [0.85, -0.6] },
+    { at: C.digits[0], pose: "point", aim: -48, expr: "talk", look: [0.75, -0.75] },
+    { at: C.soldAt, pose: "surprised", expr: "surprised", look: [0.8, -0.65], jump: true },
+    { at: C.twistAt, pose: "oneMore", expr: "excited", look: [0, 0] },
+    { at: C.raiseAt, pose: "surprised", expr: "surprised", look: [0.8, -0.75], jump: true },
+    { at: C.askAt, pose: "explain", expr: "talk", look: [0.6, 0.7] },
+    { at: C.wouldAt, pose: "explain", expr: "excited", look: [0, 0] },
+    { at: 35.4, pose: "explain", expr: "happy", look: [0.1, 0] },
+    { at: C.commentAt, pose: "explain", expr: "excited", look: [0, 0], jump: true },
+    { at: C.seriesAt, pose: "point", aim: -62, expr: "talk", look: [0.6, -0.8] },
+    { at: C.outroAt, pose: "wave", expr: "happy", look: [0, 0] },
+    { at: C.toolboxAt, pose: "thumbs", expr: "excited", look: [0, 0], jump: true },
+  ] as AvatarKey[],
+  avatarPlaces: [
+    // Starts earlier than frame 0, so the presenter is already on screen in the very first frame.
+    { at: -3, x: 540, y: 965, s: 1.05 },
+    { at: 6.7, x: 540, y: 3200, s: 1.05 },
+    { at: 15.3, ...LAYOUT.avatar.corner },
+    { at: 21.98, x: 540, y: 900, s: 1.0 },
+    { at: 23.25, x: 540, y: 3200, s: 1.0 },
+    { at: 27.3, x: 205, y: 1450, s: 0.64 },
+    { at: 29.3, x: 205, y: 3200, s: 0.64 },
+    { at: 33.42, x: 540, y: 965, s: 1.05 },
+    { at: C.seriesAt, ...LAYOUT.avatar.corner },
+    { at: C.outroAt - 0.1, x: 540, y: 1530, s: 0.8 },
+  ] as AvatarPlace[],
+  blinks: [2.3, 3.5, 6.0, 16.9, 18.6, 20.3, 22.9, 34.2, 35.9, 37.8, 39.2, 40.4, 41.5],
+
+  // [time, file in public/sfx, volume]
+  sfx: [
+    [0.0, "swish", 0.25],
+    [C.snapAt, "snap", 0.95],
+    [C.snapAt + 0.02, "impact", 0.35],
+    [C.catchAt - 0.04, "pop", 0.4],
+    [C.titleAt, "impact", 0.4],
+    [C.firstWord, "pop", 0.28],
+    [C.soldWord, "pop", 0.28],
+    [C.leanAt, "whoosh", 0.3],
+    [C.brokenAt, "impact", 0.65],
+    [C.brokenAt, "snap", 0.4],
+    [C.irisAt, "whoosh", 0.5],
+    ...yearPasses.map((at) => [at, "swish", 0.3] as [number, string, number]),
+    [C.yearLand, "impact", 0.45],
+    [C.diveAt, "whoosh", 0.45],
+    [8.72, "modem", 0.14],
+    [C.pageAt, "click", 0.4],
+    [C.pageAt + 0.03, "ding", 0.3],
+    [C.panAt, "swish", 0.3],
+    [C.nameAt, "pop", 0.3],
+    [11.9, "typing", 0.22],
+    [C.penAt, "pop", 0.3],
+    [C.sendAt, "swish", 0.32],
+    [C.rowAt, "ding", 0.3],
+    [C.listAt, "whoosh", 0.4],
+    [C.tootiAt, "pop", 0.3],
+    [C.kaunAt, "impact", 0.3],
+    [C.buyerAt - 0.04, "whoosh", 0.45],
+    [C.markName, "pop", 0.3],
+    ...[19.15, 19.3, 19.45, 19.6].map((at) => [at, "flip", 0.22] as [number, string, number]),
+    ...C.digits.map((at) => [at, "flip", 0.5] as [number, string, number]),
+    [C.digits[1], "coin", 0.3],
+    [C.digits[3], "coin", 0.34],
+    [C.soldAt, "stamp", 0.95],
+    [C.soldAt + 0.02, "impact", 0.4],
+    [C.twistAt - 0.04, "whoosh", 0.4],
+    [C.twistWord, "impact", 0.42],
+    ...calFlips.map((at) => [at, "flip", 0.3] as [number, string, number]),
+    [C.calTo, "impact", 0.6],
+    [C.calTo + 0.04, "ding", 0.3],
+    [C.camAt, "swish", 0.3],
+    [C.camAt + 0.3, "click", 0.34],
+    [C.raiseAt, "impact", 0.5],
+    [C.raiseAt + 0.02, "sparkle", 0.55],
+    [C.originalAt, "pop", 0.3],
+    [C.gadgetAt, "whoosh", 0.42],
+    [29.62, "pop", 0.3],
+    [C.historyAt, "swish", 0.3],
+    [C.plateAt, "ding", 0.42],
+    [C.plateAt + 0.02, "sparkle", 0.42],
+    [C.askAt - 0.04, "whoosh", 0.4],
+    [C.wouldAt, "impact", 0.3],
+    [C.bubbleA, "pop", 0.32],
+    [C.bubbleB, "pop", 0.32],
+    [C.commentAt, "impact", 0.38],
+    [C.commentAt + 0.02, "click", 0.42],
+    [C.seriesAt - 0.04, "whoosh", 0.4],
+    [C.seriesAt + 0.2, "pop", 0.28],
+    [C.seriesAt + 0.4, "pop", 0.28],
+    [C.seriesAt + 0.6, "pop", 0.32],
+    [C.outroAt, "whoosh", 0.42],
+    [C.outroAt + 0.14, "impact", 0.32],
+    [C.followAt + 0.1, "pop", 0.3],
+    [C.toolboxAt, "ding", 0.32],
+  ] as [number, string, number][],
+};

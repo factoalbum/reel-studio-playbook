@@ -1,0 +1,9 @@
+node_modules/
+studio/out/
+studio/public/*
+!studio/public/README.md
+whisper/
+*.wav
+*.mp3
+*.mp4
+.env*

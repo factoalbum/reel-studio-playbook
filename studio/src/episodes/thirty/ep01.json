@@ -1,0 +1,42 @@
+{
+  "episode": 1,
+  "day": 1,
+  "totalDays": 30,
+  "voiceover": "",
+  "music": "",
+  "voiceSeconds": 34,
+  "tailSeconds": 1.2,
+  "keyword": "SAMPLE",
+  "dmLine": "📩 Free Chapter 3 link DM mein",
+  "disclaimer": ["Real numbers only. No income promise.", "Kit files shown as mockups."],
+  "rules": ["₹0 on ads. Only organic posts.", "Real numbers. Even the zeros.", "An update every week."],
+  "counters": [
+    { "label": "Verified independent purchases", "from": 0, "to": 0 },
+    { "label": "Free sample requests", "from": 0, "to": 0 },
+    { "label": "Lessons learned", "from": 0, "to": 0 }
+  ],
+  "note": "2 friend checkouts were tests. Not counted.",
+  "lesson": null,
+  "cues": {
+    "hook": 0,
+    "days": 0.25,
+    "product": 0.95,
+    "dayBadge": 1.7,
+    "experiment": 3.0,
+    "rules": [4.0, 5.2, 6.4],
+    "kit": 8.0,
+    "files": 9.6,
+    "price": 12.2,
+    "tracker": 14.0,
+    "dayFill": 14.8,
+    "counters": [16.6, 17.8, 19.0],
+    "note": 20.4,
+    "lesson": null,
+    "sample": 23.0,
+    "comment": 27.0,
+    "keyword": 27.6,
+    "dm": 29.4,
+    "outro": 31.6
+  },
+  "captions": []
+}

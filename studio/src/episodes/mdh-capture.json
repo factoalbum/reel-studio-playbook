@@ -1,0 +1,21 @@
+{
+  "url": "https://milliondollarhomepage.com/",
+  "title": "The Million Dollar Homepage - Own a piece of internet history!",
+  "capturedOn": "2026-10-28",
+  "top": {
+    "file": "mdh/real-top.png",
+    "width": 1280,
+    "height": 900
+  },
+  "grid": {
+    "file": "mdh/real-grid.png",
+    "width": 1000,
+    "height": 1000,
+    "inTop": {
+      "x": 140,
+      "y": 68,
+      "w": 1000,
+      "h": 1000
+    }
+  }
+}

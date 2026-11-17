@@ -1,0 +1,243 @@
+{
+ "home": {
+  "shot": {
+   "file": "ep02/home.png",
+   "width": 1280,
+   "height": 2107
+  },
+  "logo": {
+   "x": 60,
+   "y": 56,
+   "w": 155,
+   "h": 32
+  },
+  "h1": {
+   "x": 60,
+   "y": 169,
+   "w": 664,
+   "h": 118
+  },
+  "count": {
+   "x": 60,
+   "y": 631,
+   "w": 576,
+   "h": 24
+  },
+  "browse": {
+   "x": 60,
+   "y": 563,
+   "w": 173,
+   "h": 44
+  },
+  "toolsHead": {
+   "x": 60,
+   "y": 826,
+   "w": 272,
+   "h": 37
+  },
+  "gstCard": {
+   "x": 60,
+   "y": 1022,
+   "w": 360,
+   "h": 64
+  },
+  "end": 2107,
+  "countText": "92 free tools, no sign-up, and many of them run entirely in your browser."
+ },
+ "gst": {
+  "shot": {
+   "width": 1280,
+   "height": 1460
+  },
+  "h1": {
+   "x": 60,
+   "y": 193,
+   "w": 768,
+   "h": 53
+  },
+  "amount": {
+   "x": 106,
+   "y": 1050,
+   "w": 441,
+   "h": 44
+  },
+  "rate5": {
+   "x": 640,
+   "y": 1155,
+   "w": 50,
+   "h": 44
+  },
+  "rate18": {
+   "x": 699,
+   "y": 1155,
+   "w": 60,
+   "h": 44
+  },
+  "select": {
+   "x": 597,
+   "y": 1050,
+   "w": 441,
+   "h": 44
+  },
+  "base": {
+   "x": 89,
+   "y": 1227,
+   "w": 314,
+   "h": 102
+  },
+  "gstBox": {
+   "x": 415,
+   "y": 1227,
+   "w": 314,
+   "h": 102
+  },
+  "total": {
+   "x": 741,
+   "y": 1227,
+   "w": 314,
+   "h": 102
+  },
+  "card": {
+   "x": 61,
+   "y": 667,
+   "w": 1022,
+   "h": 70
+  },
+  "states": [
+   {
+    "name": "empty",
+    "file": "ep02/gst-empty.png",
+    "note": "amount cleared, 5% selected",
+    "amount": "",
+    "total": null,
+    "rate": "5%"
+   },
+   {
+    "name": "type1",
+    "file": "ep02/gst-type1.png",
+    "note": "typed 1",
+    "amount": "1",
+    "total": "₹1.05",
+    "rate": "5%"
+   },
+   {
+    "name": "type2",
+    "file": "ep02/gst-type2.png",
+    "note": "typed 10",
+    "amount": "10",
+    "total": "₹10.50",
+    "rate": "5%"
+   },
+   {
+    "name": "type3",
+    "file": "ep02/gst-type3.png",
+    "note": "typed 100",
+    "amount": "100",
+    "total": "₹105.00",
+    "rate": "5%"
+   },
+   {
+    "name": "type4",
+    "file": "ep02/gst-type4.png",
+    "note": "typed 1000",
+    "amount": "1000",
+    "total": "₹1,050.00",
+    "rate": "5%"
+   },
+   {
+    "name": "hover18",
+    "file": "ep02/gst-hover18.png",
+    "note": "pointer over 18%",
+    "amount": "1000",
+    "total": "₹1,050.00",
+    "rate": "5%"
+   },
+   {
+    "name": "rate18",
+    "file": "ep02/gst-rate18.png",
+    "note": "18% chosen",
+    "amount": "1000",
+    "total": "₹1,180.00",
+    "rate": "18%"
+   }
+  ]
+ },
+ "preview": {
+  "shot": {
+   "width": 720,
+   "height": 450
+  },
+  "card": {
+   "x": 190,
+   "y": 42,
+   "w": 340,
+   "h": 367
+  },
+  "percent": {
+   "x": 220,
+   "y": 147,
+   "w": 280,
+   "h": 41
+  },
+  "number": {
+   "x": 220,
+   "y": 204,
+   "w": 280,
+   "h": 41
+  },
+  "button": {
+   "x": 220,
+   "y": 261,
+   "w": 280,
+   "h": 39
+  },
+  "result": {
+   "x": 220,
+   "y": 330,
+   "w": 280,
+   "h": 26
+  },
+  "states": [
+   {
+    "name": "empty",
+    "file": "ep02/chatgpt/preview-empty.png",
+    "note": "as opened",
+    "percent": "",
+    "number": "",
+    "result": "Result: 0"
+   },
+   {
+    "name": "percent",
+    "file": "ep02/chatgpt/preview-percent.png",
+    "note": "typed 18",
+    "percent": "18",
+    "number": "",
+    "result": "Result: 0"
+   },
+   {
+    "name": "number",
+    "file": "ep02/chatgpt/preview-number.png",
+    "note": "typed 1000",
+    "percent": "18",
+    "number": "1000",
+    "result": "Result: 0"
+   },
+   {
+    "name": "hover",
+    "file": "ep02/chatgpt/preview-hover.png",
+    "note": "pointer on Calculate",
+    "percent": "18",
+    "number": "1000",
+    "result": "Result: 0"
+   },
+   {
+    "name": "result",
+    "file": "ep02/chatgpt/preview-result.png",
+    "note": "clicked Calculate",
+    "percent": "18",
+    "number": "1000",
+    "result": "Result: 180"
+   }
+  ]
+ }
+}

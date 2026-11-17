@@ -1,0 +1,5 @@
+
+### 0-4.3s
+(node:6524) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  hi        खलोड@0.08 ने@0.43 अभी@0.65 अभी@0.96 इंस्टिग्राम@1.29 का@2.48 गेम@3.06 कतम@3.27 कर@3.55 दिया@3.74 है@4.20
