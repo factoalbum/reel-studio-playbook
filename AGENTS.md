@@ -43,5 +43,6 @@ This file works for Claude Code, Codex, GitHub Copilot, Cursor, Gemini and any o
 
 - `studio/`: the real Remotion project (every past reel is in `studio/src`). `public/` media is not in git;
   see `studio/public/README.md`.
-- `docs/`: the how-to, step by step. Start with `docs/workflow.md`.
+- `docs/`: the how-to, step by step. Start with `docs/workflow.md`. For 3D desk skits (low-poly three.js
+  mascot + Claude buddy), read `docs/3d-skits.md`.
 - `skills/`: ready-made agent skills (Claude Code format, readable by any agent): script, build, caption.

@@ -15,7 +15,7 @@ GitHub Copilot, Cursor, Gemini) can make reels the same way.
 | Path | What |
 |---|---|
 | `AGENTS.md` | The rules and the pipeline. Every agent reads this first. |
-| `docs/` | Step-by-step workflow, brand look, scripts and hooks, captions, honesty rules, render gotchas |
+| `docs/` | Step-by-step workflow, brand look, scripts and hooks, captions, honesty rules, render gotchas, 3D desk skits |
 | `skills/` | Agent skills: `reel-script`, `reel-build`, `reel-caption` |
 | `studio/` | The real Remotion project with the brand kit (`src/brand`) and the code of every past reel |
 
