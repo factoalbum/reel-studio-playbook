@@ -50,23 +50,29 @@ Rules:
   hour and type it, click the minutes and type them, click AM/PM and type "p".
 - After scheduling, confirm in the Planner.
 
-## Comment auto-reply (Manychat, free plan)
+## Comment auto-reply (Manychat, free plan): public comment reply ONLY, no DM
 
-Every reel with a keyword gets a Manychat automation **after the reel is live** (the free plan can only pick a
-specific, already-published post; "any post" and "next post" need a paid plan, never upgrade).
+Our Instagram DMs are restricted, so the automation must only reply under the comment. The quick
+"Auto-DM links from comments" template forces a DM step, so **do not use it**. Use the Flow Builder:
 
-1. Manychat > Automation > New Automation > "Auto-DM links from comments".
-2. "a specific post or reel": pick the new reel.
-3. "a specific word or words": the keyword in 2 or 3 spellings, comma separated (`GTA6, GTA 6, gta6`).
-4. Turn on "reply to their comments under the post" and write **3 different public replies**. Our Instagram
-   DMs are restricted, so the public reply must point to the bio link, not to the DMs. Example:
-   - "Thanks bhai! 🎮 Bio link kholo, GTA6 type karo, poora clipping plan wahan hai"
-   - "GTA6 plan ready hai 🔥 Profile ke link pe GTA6 type karo"
-   - "Mil gaya! 🎮 Bio link mein GTA6 type karo, 4 steps aur scam check sab wahan"
-5. The free plan forces "a DM with a link": write one line and add the article link as the button (it is sent
-   if Instagram allows the DM).
-6. Read every field back before Go Live: browser typing sometimes drops a letter ("aur" became "au").
-7. Go Live, then check the automation shows LIVE.
+1. Before anything, test the keyword yourself: Instagram bio link > /links > type the keyword > "Open it now"
+   must open the right free page.
+2. Wait until the reel is live (the free plan can only pick a specific, already-published post; never upgrade).
+3. Manychat > Automation > New Automation > Start From Scratch > **Start from a blank canvas**.
+4. New Trigger > "User comments on your Post or Reel" > pick the reel > Continue.
+5. Keywords: add each spelling as its own keyword (`GTA6`, `GTA 6`) > Continue.
+6. "Public Reply in the feed": Yes, random multiple replies. Write 3 different replies that say we cannot DM and
+   point to the bio link. Example:
+   - "Hum abhi DM nahi kar sakte, Instagram ne roka hai 😅 Bio link kholo, GTA6 type karo, poora plan wahan hai 🎮"
+   - "DM band hai abhi (Instagram restriction) 🙏 Profile ke link pe GTA6 type karo, guide khul jayegi 🔥"
+   - "Hamare DM abhi nahi jaate 😅 Bio link mein GTA6 likho, 4 steps aur scam check sab wahan hai"
+   Save.
+7. Delete the default "Send Message" step. The flow needs one next step, so add **Actions > Add Tag**
+   (`<keyword>comment`). A tag sends nothing to the person.
+8. Name it "<KEYWORD> comment reply only (no DM)" and Set Live.
+9. Read every reply back before going live: browser typing sometimes drops a letter, and clicking one box can
+   resize the others.
+10. If an older automation exists for the same reel, Stop it so comments do not get two replies.
 
 ## Checking and answering comments by hand
 
