@@ -44,17 +44,26 @@ import { CoverFable52 } from "./fable52/Cover";
 import { fable52 } from "./episodes/fable52";
 import { ReelGta6 } from "./ReelGta6";
 import { CoverGta6 } from "./gta6/Cover";
+import { ReelGta6Clip } from "./ReelGta6Clip";
+import { CoverGta6Clip } from "./gta6clip/Cover";
+import { ReelOpenShorts } from "./ReelOpenShorts";
+import { CoverOpenShorts } from "./openshorts/Cover";
+import { openshorts } from "./episodes/openshorts";
 import { ReelAgent } from "./ReelAgent";
 import { CoverAgent } from "./agent/Cover";
 import { agent } from "./episodes/agent";
 import { ReelAnti } from "./ReelAnti";
 import { CoverAnti } from "./anti/Cover";
 import { LookSkit } from "./skit/LookSkit";
+import { ReelWatch } from "./skit/ReelWatch";
+import { CoverWatch } from "./skit/CoverWatch";
+import { watch } from "./episodes/watch";
 import { anti } from "./episodes/anti";
 import { ReelTokens } from "./ReelTokens";
 import { CoverTokens } from "./tokens/Cover";
 import { tokens } from "./episodes/tokens";
 import { gta6 } from "./episodes/gta6";
+import { gta6clip } from "./episodes/gta6clip";
 import { Sheet } from "./Sheet";
 import { AvatarBoard } from "./brand/AvatarBoard";
 import { StyleGuide } from "./brand/StyleGuide";
@@ -294,6 +303,8 @@ export const Root: React.FC = () => (
     <Composition id="SheetTokensc" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={2801} defaultProps={{ times: [66.6, 72.9, 76.8, 78.8, 82.4, 86.0, 89.6, 91.4, 93.2], reel: "tokens" as const }} />
     {/* 3D desk skit: look test, one frame per camera setup. */}
     <Composition id="LookSkit" component={LookSkit} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={5} />
+    <Composition id="CoverWatch" component={CoverWatch} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={1} />
+    <Composition id="ReelWatch" component={ReelWatch} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={Math.ceil(watch.voiceSeconds * FPS)} />
     <Composition id="SheetAnti" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1748} defaultProps={{ times: [0.1, 3.2, 5.2, 9.8, 12.4, 16.2, 21.2, 22.6, 26.9], reel: "anti" as const }} />
     <Composition id="SheetAntib" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1748} defaultProps={{ times: [28.6, 33.0, 34.9, 37.9, 41.2, 43.4, 46.5, 50.6, 53.9], reel: "anti" as const }} />
     {/* Creator Secrets: Instagram Agent Skill for Claude Code, comment AGENT (59.48 s). */}
@@ -301,6 +312,18 @@ export const Root: React.FC = () => (
     <Composition id="CoverAgent" component={CoverAgent} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={1} />
     <Composition id="SheetAgent" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1785} defaultProps={{ times: [0.1, 2.9, 7.9, 12.3, 16.3, 20.6, 23.6, 27.0, 33.5], reel: "agent" as const }} />
     <Composition id="SheetAgentb" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1785} defaultProps={{ times: [37.0, 40.0, 45.4, 49.9, 51.9, 52.8, 55.7, 58.9, 59.4], reel: "agent" as const }} />
+    {/* Creator Secrets: GTA 6 launch-day clipping, real rate, 4 steps, keyword GTA6 (71.08 s). */}
+    <Composition id="ReelGta6Clip" component={ReelGta6Clip} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={Math.ceil(gta6clip.voiceSeconds * FPS)} defaultProps={{ cover: false }} />
+    <Composition id="CoverGta6Clip" component={CoverGta6Clip} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={1} />
+    <Composition id="SheetGta6Clip" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={2133} defaultProps={{ times: [0.1, 2.9, 6.0, 7.8, 9.4, 13.5, 16.8, 17.7, 21.0], reel: "gta6clip" as const }} />
+    <Composition id="SheetGta6Clipb" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={2133} defaultProps={{ times: [24.4, 26.0, 29.0, 31.3, 33.4, 35.2, 37.6, 39.4, 41.0], reel: "gta6clip" as const }} />
+    <Composition id="SheetGta6Clipc" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={2133} defaultProps={{ times: [43.8, 45.6, 47.5, 48.9, 51.0, 53.6, 55.0, 57.0, 58.0], reel: "gta6clip" as const }} />
+    <Composition id="SheetGta6Clipd" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={2133} defaultProps={{ times: [60.0, 62.5, 63.2, 63.9, 65.6, 67.4, 68.4, 69.8, 70.9], reel: "gta6clip" as const }} />
+    <Composition id="ReelOpenShorts" component={ReelOpenShorts} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={Math.ceil(openshorts.voiceSeconds * FPS)} defaultProps={{ cover: false }} />
+    <Composition id="CoverOpenShorts" component={CoverOpenShorts} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={1} />
+    <Composition id="SheetOpenShorts" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1716} defaultProps={{ times: [0.4, 1.9, 4.2, 6.6, 9.4, 11.0, 13.0, 14.9, 19.6], reel: "openshorts" as const }} />
+    <Composition id="SheetOpenShortsb" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1716} defaultProps={{ times: [22.2, 24.0, 25.9, 27.2, 28.9, 30.4, 32.2, 35.0, 37.0], reel: "openshorts" as const }} />
+    <Composition id="SheetOpenShortsc" component={Sheet} width={1080} height={1920} fps={FPS} durationInFrames={1716} defaultProps={{ times: [38.6, 39.6, 43.9, 46.8, 48.5, 49.5, 51.2, 53.8, 56.8], reel: "openshorts" as const }} />
     {/* Creator Secrets: GTA 6 hype, how the reels are made, the AI Reel Kit (53.00 s). */}
     <Composition id="ReelGta6" component={ReelGta6} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={Math.ceil(gta6.voiceSeconds * FPS)} defaultProps={{ cover: false }} />
     <Composition id="CoverGta6" component={CoverGta6} width={WIDTH} height={HEIGHT} fps={FPS} durationInFrames={1} />

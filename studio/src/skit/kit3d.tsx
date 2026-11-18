@@ -317,7 +317,7 @@ const Head: React.FC<Required<Pick<MascotPose, "gaze" | "blink" | "wide" | "brow
   );
 };
 
-const Phone: React.FC<{ glow: number }> = ({ glow }) => (
+export const Phone: React.FC<{ glow: number }> = ({ glow }) => (
   <group>
     <Box s={[0.19, 0.37, 0.022]} c={K.lime} rough={0.5} />
     {/* Camera bump on the back (the side the viewer sees). */}

@@ -21,9 +21,11 @@ import { ReelGta6 } from "./ReelGta6";
 import { ReelAgent } from "./ReelAgent";
 import { ReelAnti } from "./ReelAnti";
 import { ReelTokens } from "./ReelTokens";
+import { ReelGta6Clip } from "./ReelGta6Clip";
+import { ReelOpenShorts } from "./ReelOpenShorts";
 
 const Thirty01: React.FC = () => <ReelThirty ep="ep01" />;
-const REELS = { v3: Reel01v3, v4: Reel01v4, "02": Reel02, mdh: ReelMDH, google: ReelGoogle, secrets: ReelSecrets, ebay: ReelEbay, bonus: ReelBonus, immich: ReelImmich, google5: ReelGoogle5, jio: ReelJio, thirty01: Thirty01, launch: ReelLaunch, sales: ReelSales, claude: ReelClaude, fable: ReelFable, fable52: ReelFable52, gta6: ReelGta6, agent: ReelAgent, anti: ReelAnti, tokens: ReelTokens };
+const REELS = { v3: Reel01v3, v4: Reel01v4, "02": Reel02, mdh: ReelMDH, google: ReelGoogle, secrets: ReelSecrets, ebay: ReelEbay, bonus: ReelBonus, immich: ReelImmich, google5: ReelGoogle5, jio: ReelJio, thirty01: Thirty01, launch: ReelLaunch, sales: ReelSales, claude: ReelClaude, fable: ReelFable, fable52: ReelFable52, gta6: ReelGta6, agent: ReelAgent, anti: ReelAnti, tokens: ReelTokens, gta6clip: ReelGta6Clip, openshorts: ReelOpenShorts };
 
 /** Preview helper: several frames of a reel on one image (3 columns at 1/3 size). */
 export const Sheet: React.FC<{ times: number[]; reel?: keyof typeof REELS }> = ({ times, reel = "v4" }) => {

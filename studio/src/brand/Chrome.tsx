@@ -49,10 +49,11 @@ export const BrandMark: React.FC<{ size?: number; round?: boolean }> = ({ size =
 );
 
 /** Logo and name, top left, in every reel. */
-export const BrandBug: React.FC = () => (
+/** `light` = white name, for dark-themed reels. */
+export const BrandBug: React.FC<{ light?: boolean }> = ({ light = false }) => (
   <div style={{ position: "absolute", left: SAFE.left, top: LAYOUT.brandTop, display: "flex", alignItems: "center", gap: 14 }}>
     <BrandMark size={54} />
-    <div style={{ ...type.display, letterSpacing: "-0.02em", fontSize: 32, color: P.ink }}>Internet Toolbox</div>
+    <div style={{ ...type.display, letterSpacing: "-0.02em", fontSize: 32, color: light ? "#FFFFFF" : P.ink }}>Internet Toolbox</div>
   </div>
 );
 

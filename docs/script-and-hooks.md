@@ -24,3 +24,14 @@ Roman Hinglish, spoken style, short sentences. English for tool names. Lowercase
 
 Each reel gets one new keyword (letters and numbers). It must open a free page on internetoolbox.com/links.
 The site accepts the word with or without a final S and one small typo.
+
+## Theme follows the topic (owner's rule, 18 Nov 2026)
+
+Every reel looks like its topic, not like a plain brand template.
+
+- Draw the topic's world in code: its colours, setting and scene-change wipes. Example: GTA 6 got a Vice City sunset, palm trees, a neon grid floor and pink and purple wipes.
+- Put the topic's official logo big on screen in the first second. People must recognise the topic before they hear a word.
+- Show the official logo of every app or site the reel names: in the step header and as small badges on the mock screens.
+- Take logos only from each brand's own website and never alter them. Never use game footage or key art.
+- Keep the brand constants: the mascot, the Internet Toolbox bug, subtitles, the progress bar and the honesty labels.
+- Reference code: `studio/src/gta6clip/Scenes.tsx` (Gta, LogoTile, ViceBackdrop, StepHead with a `logo` prop). Sync it from reel-01 first.

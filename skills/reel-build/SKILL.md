@@ -6,7 +6,7 @@ description: Turn the owner's recorded voiceover WAV into a finished 1080x1920 R
 # Reel build
 
 1. Read `AGENTS.md`, `docs/workflow.md`, `docs/brand.md` and `docs/render-gotchas.md`.
-2. Copy the WAV unchanged to `studio/public/<reel>/voice.wav`; record its MD5 and length.
+2. Copy the WAV (the owner's file or the chosen Gemini TTS take) unchanged to `studio/public/<reel>/voice.wav`; record its MD5 and length. For 3D skits follow `docs/3d-skits.md` instead.
 3. Transcribe it locally (workflow step 3). Use the real words for subtitles. Note any line that differs from the
    script, and any fact in the voice that is now wrong (correct it on screen with a dated update).
 4. Create `src/episodes/<reel>.ts`, `src/<reel>/Scenes.tsx`, `src/<reel>/Cover.tsx`, `src/Reel<Name>.tsx`, register

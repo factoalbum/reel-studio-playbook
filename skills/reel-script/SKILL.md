@@ -13,4 +13,4 @@ description: Write a 30 to 95 second Roman Hinglish reel script in the Internet 
 5. End with: "Comment karo KEYWORD, ya link in bio pe KEYWORD type karo." Pick a new keyword.
 6. Under the script, list: the facts with sources, the planned visuals per section (original, no third-party art),
    and anything the owner must decide.
-7. Hand it to the owner to record. Do not generate a voice.
+7. Show it to the owner. The owner records it, or asks for a Gemini TTS voice (Puck; skits: You = Puck, Claude = Charon), see `docs/voice-gemini-tts.md`. Never clone a real person's voice.
